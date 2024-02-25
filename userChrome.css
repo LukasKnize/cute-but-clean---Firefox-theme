@@ -1,0 +1,102 @@
+/* Base color for the theme, dependent on whether it's a light theme or not */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --accent-color: #A5DD9B;
+      --contrast-color: #444545;
+      --select-tab: #96C98D;
+      --light-color: #CAEDB2;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+      --accent-color: #FAFAFC;
+  }
+}
+
+
+/*==== tabs ====*/
+.tab-background{
+  background-color: #CAEDB2;
+}
+
+.tab-label-container{
+  color: var(--contrast-color) !important;
+}
+
+.tab-background:is([selected], [multiselected]){
+  background-color: #96C98D !important;
+}
+
+/*====url bar====*/
+
+#urlbar-background {
+  background: var(--light-color) !important;
+}
+
+#urlbar-input{
+  color: var(--contrast-color) !important;
+}
+
+.urlbarView-no-wrap {
+  color: var(--contrast-color) !important;
+}
+
+.search-one-offs {
+  display: none;
+}
+
+#titlebar {
+  background: var(--accent-color) !important;
+}
+
+/*==== remove some icons====*/
+#save-to-pocket-button{
+  display: none;
+}
+
+#fxa-toolbar-menu-button{
+  display: none;
+}
+
+/* Sets the toolbar color */
+toolbar#nav-bar {
+  background: var(--accent-color) !important;
+  box-shadow: none !important;
+}
+
+/*====== Simplifying interface ======*/
+
+/* Autohide back button when disabled */
+#back-button, #forward-button {
+  transform: scale(1, 1) !important;
+  transition: margin-left 150ms var(--animation-easing-function), opacity 250ms var(--animation-easing-function), transform 350ms var(--animation-easing-function) !important;
+}
+
+#back-button[disabled="true"], #forward-button[disabled="true"] {
+  margin-left: -34px !important;
+  opacity: 0 !important;
+  transform: scale(0.8, 0.8) !important;
+  pointer-events: none !important;
+}
+
+#nav-bar {
+  box-shadow: none !important;
+}
+
+
+/* Remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+> #tabbrowser-arrowscrollbox
+> .tabbrowser-tab[first-visible-unpinned-tab] {
+  margin-inline-start: 0 !important;
+}
+
+/*====home page====*/
+#PersonalToolbar{
+  background-color: var(--accent-color) !important;
+}
+
+.toolbarbutton-text {
+  color: var(--contrast-color);
+}
